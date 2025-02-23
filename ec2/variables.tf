@@ -26,3 +26,7 @@ variable "ami_id" {
     description = "AMI for Ubuntu Ec2 instance" 
     default     = "ami-04b4f1a9cf54c11d0" 
 }
+variable "instance_count" {
+  description = "Number of EC2 instances to create"
+  type        = number
+}

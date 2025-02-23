@@ -1,6 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
 
 resource "aws_vpc" "main" {
   cidr_block = "172.31.0.0/16"
@@ -43,13 +40,15 @@ resource "aws_security_group" "new-terraform-sg" {
   }
 }
 
+
+#Create Multiple EC2 Instances
 resource "aws_instance" "terraform-ec2" {
+  count         = var.instance_count
   ami           = var.ami_id
   key_name = var.key_name
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.new-terraform-sg.id]
   tags= {
-    Name = var.tag_name
+    Name = "${var.tag_name}-${count.index + 1}"
   }
 }
-
