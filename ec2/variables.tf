@@ -5,7 +5,7 @@ variable "aws_region" {
 
 variable "key_name" { 
     description = " SSH keys to connect to ec2 instance" 
-    default     =  "springclasskey"
+    default     =  "SpringClassKey"
 }
 
 variable "instance_type" { 
@@ -24,5 +24,5 @@ variable "tag_name" {
 } 
 variable "ami_id" { 
     description = "AMI for Ubuntu Ec2 instance" 
-    default     = "ami-0893df1bd754c3189" 
+    default     = "ami-04b4f1a9cf54c11d0" 
 }
